@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.library.controller.DashboardController"
+            fitToWidth="true" styleClass="scroll-pane">
+    <VBox spacing="20">
+
+        <!-- KPI row -->
+        <HBox spacing="16">
+            <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <StackPane styleClass="kpi-icon-badge, kpi-icon-badge-primary">
+                        <SVGPath styleClass="icon-svg-primary" content="M4 4 L11 4 L11 20 L4 18 Z M20 4 L13 4 L13 20 L20 18 Z"/>
+                    </StackPane>
+                    <VBox>
+                        <Label fx:id="totalBooksValueLabel" text="0" styleClass="kpi-value"/>
+                        <Label text="Total Books" styleClass="kpi-label"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <StackPane styleClass="kpi-icon-badge, kpi-icon-badge-accent">
+                        <SVGPath styleClass="icon-svg-accent"
+                                 content="M2 5 L14 5 L14 2 L21 6.5 L14 11 L14 8 L2 8 Z M22 16 L10 16 L10 13 L3 17.5 L10 22 L10 19 L22 19 Z"/>
+                    </StackPane>
+                    <VBox>
+                        <Label fx:id="issuedValueLabel" text="0" styleClass="kpi-value"/>
+                        <Label text="Books Issued" styleClass="kpi-label"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <StackPane styleClass="kpi-icon-badge, kpi-icon-badge-danger">
+                        <SVGPath styleClass="icon-svg-danger" content="M11 3 H13 V14 H11 Z M11 17 H13 V19 H11 Z"/>
+                    </StackPane>
+                    <VBox>
+                        <Label fx:id="overdueValueLabel" text="0" styleClass="kpi-value"/>
+                        <Label text="Overdue" styleClass="kpi-label"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <StackPane styleClass="kpi-icon-badge, kpi-icon-badge-success">
+                        <SVGPath styleClass="icon-svg-success" content="M12 3 L16 7 L12 11 L8 7 Z M5 21 L5 16 L19 16 L19 21 Z"/>
+                    </StackPane>
+                    <VBox>
+                        <Label fx:id="totalStudentsValueLabel" text="0" styleClass="kpi-value"/>
+                        <Label text="Total Students" styleClass="kpi-label"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <StackPane styleClass="kpi-icon-badge, kpi-icon-badge-warning">
+                        <SVGPath styleClass="icon-svg-warning" content="M8 3 L16 3 L21 8 L21 16 L16 21 L8 21 L3 16 L3 8 Z"/>
+                    </StackPane>
+                    <VBox>
+                        <Label fx:id="returnedTodayValueLabel" text="0" styleClass="kpi-value"/>
+                        <Label text="Returned Today" styleClass="kpi-label"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </HBox>
+
+        <!-- Recent activity + category chart -->
+        <HBox spacing="20">
+            <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="12" maxWidth="Infinity">
+                <Label text="Recent Activity" styleClass="card-title"/>
+                <TableView fx:id="recentActivityTable" VBox.vgrow="ALWAYS" prefHeight="320">
+                    <columns>
+                        <TableColumn fx:id="colActivityStudent" text="Student" prefWidth="150"/>
+                        <TableColumn fx:id="colActivityBook" text="Book" prefWidth="180"/>
+                        <TableColumn fx:id="colActivityDate" text="Issued" prefWidth="100"/>
+                        <TableColumn fx:id="colActivityStatus" text="Status" prefWidth="100"/>
+                    </columns>
+                    <placeholder>
+                        <Label text="No activity yet" styleClass="empty-state-text"/>
+                    </placeholder>
+                </TableView>
+            </VBox>
+
+            <VBox styleClass="card" prefWidth="340" minWidth="300" spacing="12">
+                <Label text="Books by Category" styleClass="card-title"/>
+                <PieChart fx:id="categoryPieChart" legendVisible="true" labelsVisible="false" prefHeight="300"/>
+            </VBox>
+        </HBox>
+    </VBox>
+    <padding>
+        <Insets bottom="10"/>
+    </padding>
+</ScrollPane>

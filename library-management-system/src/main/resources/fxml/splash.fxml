@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.library.controller.SplashController"
+           styleClass="root-bg, splash-root" prefWidth="520" prefHeight="360">
+    <VBox alignment="CENTER" spacing="12">
+        <ImageView fitWidth="84" fitHeight="84" preserveRatio="true">
+            <Image url="@../images/app-icon.png"/>
+        </ImageView>
+        <Label text="LibraSys" styleClass="splash-title">
+            <VBox.margin>
+                <Insets top="10"/>
+            </VBox.margin>
+        </Label>
+        <Label text="Library Management System" styleClass="splash-subtitle"/>
+        <VBox alignment="CENTER" spacing="8" prefWidth="260">
+            <VBox.margin>
+                <Insets top="26"/>
+            </VBox.margin>
+            <ProgressBar fx:id="progressBar" prefWidth="260" progress="0.0" styleClass="splash-progress"/>
+            <Label fx:id="statusLabel" text="Starting up..." styleClass="splash-status"/>
+        </VBox>
+    </VBox>
+</StackPane>

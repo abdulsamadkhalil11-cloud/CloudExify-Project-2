@@ -1,4 +1,3 @@
-# CloudExify-Project-2
 # LibraSys — Library Management System
 
 A desktop library management system built with Java 21, JavaFX, Maven and

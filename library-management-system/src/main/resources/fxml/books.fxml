@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.library.controller.BookManagementController" spacing="16">
+
+    <HBox alignment="CENTER_LEFT">
+        <Label text="Manage your library's catalog — add titles, track copies, and keep availability accurate." styleClass="page-subtitle" wrapText="true" maxWidth="520"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="addBookButton" text="+ Add Book" styleClass="btn-accent" onAction="#handleAddBook"/>
+    </HBox>
+
+    <HBox spacing="12" alignment="CENTER_LEFT" styleClass="card">
+        <TextField fx:id="searchField" promptText="Search by title, ISBN or author..." styleClass="search-field" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <ComboBox fx:id="categoryFilterCombo" promptText="All Categories" prefWidth="180"/>
+        <Button fx:id="clearFiltersButton" text="Clear" styleClass="btn-outline" onAction="#handleClearFilters"/>
+    </HBox>
+
+    <VBox styleClass="card" VBox.vgrow="ALWAYS" spacing="10">
+        <TableView fx:id="booksTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colTitle" text="Title" prefWidth="200"/>
+                <TableColumn fx:id="colAuthor" text="Author" prefWidth="150"/>
+                <TableColumn fx:id="colCategory" text="Category" prefWidth="130"/>
+                <TableColumn fx:id="colIsbn" text="ISBN" prefWidth="120"/>
+                <TableColumn fx:id="colTotal" text="Total" prefWidth="60"/>
+                <TableColumn fx:id="colAvailable" text="Available" prefWidth="80"/>
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
+                <TableColumn fx:id="colActions" text="Actions" prefWidth="130"/>
+            </columns>
+            <placeholder>
+                <Label text="No books found" styleClass="empty-state-text"/>
+            </placeholder>
+        </TableView>
+
+        <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="pagination-bar">
+            <Button fx:id="prevPageButton" text="Previous" styleClass="btn-outline" onAction="#handlePrevPage"/>
+            <Label fx:id="pageLabel" text="Page 1 of 1" styleClass="page-indicator-label"/>
+            <Button fx:id="nextPageButton" text="Next" styleClass="btn-outline" onAction="#handleNextPage"/>
+        </HBox>
+    </VBox>
+</VBox>

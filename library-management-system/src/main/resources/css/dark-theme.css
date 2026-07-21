@@ -1,0 +1,24 @@
+/* ===================================================================
+   dark-theme.css — color tokens only, mirrors light-theme.css.
+   =================================================================== */
+.root {
+    -fx-bg: #12172A;
+    -fx-surface: #1B2540;
+    -fx-border: #2C3854;
+
+    -fx-sidebar-bg: #0D111F;
+    -fx-sidebar-hover: #1B2540;
+    -fx-sidebar-text: #98A1B8;
+    -fx-sidebar-text-active: #FFFFFF;
+
+    -fx-primary: #34426B;
+    -fx-accent: #D8B36E;
+    -fx-secondary: #6E90B8;
+
+    -fx-success: #3E9C74;
+    -fx-warning: #E0954A;
+    -fx-danger: #D1585B;
+
+    -fx-text-primary: #ECEEF3;
+    -fx-text-secondary: #A6ADC1;
+}

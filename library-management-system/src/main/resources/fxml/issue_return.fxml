@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.library.controller.IssueReturnController" spacing="16">
+
+    <VBox styleClass="card" spacing="12">
+        <Label text="Issue a Book" styleClass="card-title"/>
+        <Label text="Type or scan the student number and book ISBN — a USB barcode scanner works here since it just types into the field." styleClass="muted-text" wrapText="true"/>
+        <HBox spacing="12" alignment="BOTTOM_LEFT">
+            <VBox spacing="5">
+                <Label text="Student number" styleClass="form-label"/>
+                <TextField fx:id="studentNumberField" promptText="e.g. FA25-BSE-001" styleClass="text-field" prefWidth="220" onAction="#handleIssue"/>
+            </VBox>
+            <VBox spacing="5">
+                <Label text="Book ISBN" styleClass="form-label"/>
+                <TextField fx:id="bookIsbnField" promptText="e.g. 9780132350884" styleClass="text-field" prefWidth="220" onAction="#handleIssue"/>
+            </VBox>
+            <Button fx:id="issueButton" text="Issue Book" styleClass="btn-primary" onAction="#handleIssue"/>
+        </HBox>
+        <Label fx:id="issueStatusLabel" wrapText="true" managed="false" visible="false"/>
+    </VBox>
+
+    <HBox spacing="12" alignment="CENTER_LEFT" styleClass="card">
+        <TextField fx:id="searchField" promptText="Search by student or book..." styleClass="search-field" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <ComboBox fx:id="filterCombo" prefWidth="180"/>
+    </HBox>
+
+    <VBox styleClass="card" VBox.vgrow="ALWAYS" spacing="10">
+        <TableView fx:id="recordsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colStudent" text="Student" prefWidth="150"/>
+                <TableColumn fx:id="colBook" text="Book" prefWidth="180"/>
+                <TableColumn fx:id="colIssueDate" text="Issued" prefWidth="90"/>
+                <TableColumn fx:id="colDueDate" text="Due" prefWidth="90"/>
+                <TableColumn fx:id="colFine" text="Fine" prefWidth="80"/>
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="90"/>
+                <TableColumn fx:id="colActions" text="Actions" prefWidth="150"/>
+            </columns>
+            <placeholder>
+                <Label text="No records found" styleClass="empty-state-text"/>
+            </placeholder>
+        </TableView>
+    </VBox>
+</VBox>

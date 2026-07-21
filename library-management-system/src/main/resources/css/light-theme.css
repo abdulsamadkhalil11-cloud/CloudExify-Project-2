@@ -1,0 +1,27 @@
+/* ===================================================================
+   light-theme.css — color tokens only. Layout/structure lives in
+   common.css and references these via JavaFX's "looked-up color"
+   mechanism (e.g. -fx-background-color: -fx-bg;), so this file is the
+   entire diff between light and dark mode.
+   =================================================================== */
+.root {
+    -fx-bg: #F4F6F9;
+    -fx-surface: #FFFFFF;
+    -fx-border: #E2E6ED;
+
+    -fx-sidebar-bg: #1B2540;
+    -fx-sidebar-hover: #24304F;
+    -fx-sidebar-text: #A9B2C6;
+    -fx-sidebar-text-active: #FFFFFF;
+
+    -fx-primary: #1B2540;
+    -fx-accent: #C9A15D;
+    -fx-secondary: #3D5A80;
+
+    -fx-success: #2E7D5B;
+    -fx-warning: #C97A2B;
+    -fx-danger: #B23A3A;
+
+    -fx-text-primary: #1B2540;
+    -fx-text-secondary: #5B6478;
+}

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.library.controller.LoginController" prefWidth="900" prefHeight="560">
+
+    <!-- Left brand panel -->
+    <VBox styleClass="login-split-left" alignment="CENTER_LEFT" spacing="18" HBox.hgrow="ALWAYS" prefWidth="380">
+        <padding>
+            <Insets top="48" right="48" bottom="48" left="48"/>
+        </padding>
+        <ImageView fitWidth="56" fitHeight="56" preserveRatio="true">
+            <Image url="@../images/app-icon.png"/>
+        </ImageView>
+        <Label text="LibraSys" styleClass="brand-title">
+            <VBox.margin>
+                <Insets top="8"/>
+            </VBox.margin>
+        </Label>
+        <Label text="Library Management System" styleClass="brand-subtitle" wrapText="true"/>
+        <VBox spacing="10">
+            <VBox.margin>
+                <Insets top="30"/>
+            </VBox.margin>
+            <Label text="✓  Real-time catalog and availability" styleClass="login-feature-item"/>
+            <Label text="✓  Automatic due dates and fine calculation" styleClass="login-feature-item"/>
+            <Label text="✓  Dashboard analytics and PDF reports" styleClass="login-feature-item"/>
+        </VBox>
+    </VBox>
+
+    <!-- Right login panel -->
+    <StackPane styleClass="login-split-right" alignment="CENTER" HBox.hgrow="ALWAYS" prefWidth="520">
+        <VBox styleClass="login-card" maxWidth="360" alignment="CENTER" spacing="6">
+            <Label text="Welcome back" styleClass="login-title"/>
+            <Label text="Sign in with your staff account" styleClass="login-subtitle">
+                <VBox.margin>
+                    <Insets bottom="14"/>
+                </VBox.margin>
+            </Label>
+
+            <Label fx:id="errorLabel" styleClass="login-error-banner" wrapText="true" maxWidth="Infinity"
+                   managed="false" visible="false">
+                <VBox.margin>
+                    <Insets bottom="10"/>
+                </VBox.margin>
+            </Label>
+
+            <VBox spacing="5" alignment="CENTER_LEFT">
+                <Label text="Username" styleClass="form-label"/>
+                <TextField fx:id="usernameField" promptText="admin" styleClass="text-field" maxWidth="Infinity"/>
+            </VBox>
+            <VBox spacing="5" alignment="CENTER_LEFT">
+                <VBox.margin>
+                    <Insets top="12"/>
+                </VBox.margin>
+                <Label text="Password" styleClass="form-label"/>
+                <PasswordField fx:id="passwordField" promptText="••••••••" styleClass="text-field" maxWidth="Infinity"
+                                onAction="#handleLogin"/>
+            </VBox>
+
+            <HBox alignment="CENTER_LEFT">
+                <VBox.margin>
+                    <Insets top="10" bottom="18"/>
+                </VBox.margin>
+                <CheckBox fx:id="rememberCheckBox" text="Remember me" styleClass="check-box"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Hyperlink fx:id="forgotPasswordLink" text="Forgot password?" styleClass="link-button"
+                           onAction="#handleForgotPassword"/>
+            </HBox>
+
+            <Button fx:id="loginButton" text="Sign In" styleClass="btn-primary" maxWidth="Infinity"
+                    onAction="#handleLogin"/>
+
+            <Label text="Default admin: admin / admin123" styleClass="muted-text">
+                <VBox.margin>
+                    <Insets top="16"/>
+                </VBox.margin>
+            </Label>
+        </VBox>
+    </StackPane>
+</HBox>
